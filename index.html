@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeftLane - WordPress Playground</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            background: #f0f0f1;
+        }
+        
+        #loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        #loading h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #playground {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+        
+        #playground.loaded {
+            display: block;
+        }
+        
+        .progress {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <h1>LeftLane</h1>
+        <div class="spinner"></div>
+        <p>Loading WordPress Playground...</p>
+        <div class="progress" id="progress"></div>
+    </div>
+    
+    <iframe id="playground"></iframe>
+
+    <script type="module">
+        import { startPlaygroundWeb } from 'https://playground.wordpress.net/client/index.js';
+
+        const loading = document.getElementById('loading');
+        const progress = document.getElementById('progress');
+        const playground = document.getElementById('playground');
+
+        async function initPlayground() {
+            try {
+                progress.textContent = 'Fetching blueprint...';
+                
+                // Fetch the blueprint configuration
+                const blueprintResponse = await fetch('./blueprint.json');
+                const blueprint = await blueprintResponse.json();
+
+                progress.textContent = 'Starting WordPress...';
+
+                // Start WordPress Playground
+                const client = await startPlaygroundWeb({
+                    iframe: playground,
+                    remoteUrl: 'https://playground.wordpress.net/remote.html',
+                    blueprint: blueprint,
+                    sapiName: 'cli'
+                });
+
+                progress.textContent = 'WordPress is ready!';
+                
+                // Hide loading screen and show playground
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                    playground.classList.add('loaded');
+                }, 500);
+
+                console.log('WordPress Playground loaded successfully!');
+            } catch (error) {
+                console.error('Error loading WordPress Playground:', error);
+                progress.textContent = 'Error loading WordPress. Check console for details.';
+                progress.style.color = '#ffcccc';
+            }
+        }
+
+        // Initialize on page load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPlayground);
+        } else {
+            initPlayground();
+        }
+    </script>
+</body>
+</html>
+

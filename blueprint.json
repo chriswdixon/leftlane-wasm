@@ -1,0 +1,48 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": [
+    "kitchen-sink"
+  ],
+  "features": {
+    "networking": true
+  },
+  "steps": [
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "classic-editor"
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeZipFile": {
+        "resource": "wordpress.org/themes",
+        "slug": "twentytwentyfour"
+      }
+    },
+    {
+      "step": "activateTheme",
+      "themeFolderName": "twentytwentyfour"
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "LeftLane",
+        "blogdescription": "Your Site Tagline",
+        "permalink_structure": "/%postname%/"
+      }
+    }
+  ]
+}
+
