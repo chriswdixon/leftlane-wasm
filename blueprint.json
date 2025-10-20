@@ -18,31 +18,38 @@
       "password": "password"
     },
     {
-      "step": "installPlugin",
-      "pluginZipFile": {
-        "resource": "wordpress.org/plugins",
-        "slug": "classic-editor"
-      }
-    },
-    {
       "step": "installTheme",
       "themeZipFile": {
         "resource": "wordpress.org/themes",
-        "slug": "twentytwentyfour"
+        "slug": "astra"
       }
     },
     {
       "step": "activateTheme",
-      "themeFolderName": "twentytwentyfour"
+      "themeFolderName": "astra"
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "elementor"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginZipFile": {
+        "resource": "wordpress.org/plugins",
+        "slug": "astra-sites"
+      }
     },
     {
       "step": "setSiteOptions",
       "options": {
-        "blogname": "LeftLane",
-        "blogdescription": "Your Site Tagline",
-        "permalink_structure": "/%postname%/"
+        "blogname": "LeftLane.io",
+        "blogdescription": "Keeping You in the Fast Lane",
+        "permalink_structure": "/%postname%/",
+        "show_on_front": "page"
       }
     }
   ]
 }
-

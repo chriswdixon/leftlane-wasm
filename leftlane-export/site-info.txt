@@ -1,0 +1,19 @@
+# Fill in this information about leftlane.io
+
+THEME_NAME=
+THEME_SLUG=
+
+PLUGINS=(
+    # List active plugin slugs, one per line
+    # Example:
+    # "contact-form-7"
+    # "yoast-seo"
+)
+
+SITE_TITLE="LeftLane"
+SITE_TAGLINE=""
+
+HOMEPAGE_TYPE="posts"  # or "page"
+HOMEPAGE_ID=""  # if using static page
+
+PERMALINK_STRUCTURE="/%postname%/"
