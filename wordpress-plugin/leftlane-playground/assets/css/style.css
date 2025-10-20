@@ -1,0 +1,83 @@
+/* WordPress Playground Frontend Styles */
+
+.leftlane-playground-wrapper {
+    margin: 2rem 0;
+}
+
+.leftlane-playground-container {
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.leftlane-playground-wrapper.with-border .leftlane-playground-container {
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leftlane-playground-wrapper.no-border .leftlane-playground-container {
+    border: none;
+}
+
+.leftlane-playground-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+.leftlane-playground-loading .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid white;
+    width: 50px;
+    height: 50px;
+    animation: leftlane-spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes leftlane-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.leftlane-playground-loading p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.leftlane-playground-loading small {
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.leftlane-playground-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .leftlane-playground-container {
+        border-radius: 4px;
+    }
+    
+    .leftlane-playground-loading {
+        min-height: 300px;
+        padding: 1rem;
+    }
+    
+    .leftlane-playground-loading p {
+        font-size: 1rem;
+    }
+}
+

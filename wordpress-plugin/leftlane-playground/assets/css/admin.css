@@ -1,0 +1,90 @@
+/* WordPress Playground Admin Styles */
+
+.leftlane-playground-intro {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-left: 4px solid #2271b1;
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.leftlane-playground-intro p {
+    margin: 0.5rem 0;
+}
+
+.leftlane-playground-admin-wrapper {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 800px;
+}
+
+.leftlane-playground-admin-wrapper .leftlane-playground-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 760px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+}
+
+.leftlane-playground-admin-wrapper .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 4px solid white;
+    width: 50px;
+    height: 50px;
+    animation: admin-spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes admin-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.leftlane-playground-admin-wrapper .leftlane-playground-loading p {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.leftlane-playground-admin-wrapper .leftlane-playground-loading small {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+/* Admin Bar Icon */
+#wpadminbar #wp-admin-bar-leftlane-playground .ab-icon:before {
+    content: "\f541";
+    top: 2px;
+}
+
+/* Settings Page */
+.form-table th {
+    padding: 20px 10px 20px 0;
+}
+
+.form-table td {
+    padding: 15px 10px;
+}
+
+.form-table code {
+    display: block;
+    background: #f6f7f7;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-left: 4px solid #2271b1;
+    font-size: 13px;
+}
+
+.form-table h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
